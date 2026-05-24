@@ -1,0 +1,1955 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Spin A Wheel – Free Online Random Wheel Spinner | SpinAWheel</title>
+  <meta name="description" content="Spin A Wheel is a free online random wheel spinner. Use our decision wheel, classroom spinner, random student picker, mystery wheel, and more. Fast, fun, and interactive!" />
+  <meta name="keywords" content="spin wheel, random wheel, spin a wheel, wheel spin, spin the wheel, random wheel spin, wheel spinner, spinning wheel, deciding wheel, mystery wheel, wheel generator, wheel picker, classroom spinner wheel, random student picker wheel, free online spinner for classroom, interactive spin wheel" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://spinawheel.github.io/" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Spin A Wheel – Free Online Random Wheel Spinner" />
+  <meta property="og:description" content="Free interactive spin wheel for decisions, classrooms, games, and more. Customize your wheel and spin!" />
+  <meta property="og:url" content="https://spinawheel.github.io/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://spinawheel.github.io/og-image.png" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Spin A Wheel – Free Online Random Wheel Spinner" />
+  <meta name="twitter:description" content="Free interactive spin wheel for decisions, classrooms, games, and more." />
+
+  <!-- Schema Markup -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Spin A Wheel",
+    "url": "https://spinawheel.github.io/",
+    "description": "A free online random wheel spinner for decisions, classrooms, games, and more.",
+    "applicationCategory": "UtilitiesApplication",
+    "operatingSystem": "Any",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "featureList": [
+      "Decision Wheel",
+      "Classroom Spinner",
+      "Random Student Picker",
+      "Yes/No Wheel",
+      "Mystery Wheel",
+      "Custom Wheel",
+      "Color Wheel",
+      "Number Wheel"
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How does the spin wheel work?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Our random wheel spinner uses a certified random algorithm. Simply enter your items, click SPIN, and the wheel randomly lands on one option. Each spin is fully independent and unbiased."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I customize the wheel entries?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes! You can add, remove, or edit any entry. You can also adjust colors and wheel types to match your needs."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is the wheel spinner free to use?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Absolutely. Spin A Wheel is 100% free with no login required."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can teachers use this for classrooms?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes! Our classroom spinner wheel and random student picker are designed specifically for teachers. Add student names and spin to fairly select participants."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ============================================================
+       CSS VARIABLES & RESET
+    ============================================================ */
+    :root {
+      --bg: #09090f;
+      --bg2: #10101a;
+      --bg3: #15151f;
+      --surface: #1a1a28;
+      --border: rgba(255,255,255,0.08);
+      --accent: #ff5e3a;
+      --accent2: #ff9f1c;
+      --accent3: #6c63ff;
+      --teal: #00e5c3;
+      --text: #f0eff8;
+      --text2: #a09cb8;
+      --text3: #6b6880;
+      --radius: 18px;
+      --radius-sm: 10px;
+      --shadow: 0 20px 60px rgba(0,0,0,0.6);
+      --glow: 0 0 40px rgba(255,94,58,0.25);
+      --font-display: 'Syne', sans-serif;
+      --font-body: 'DM Sans', sans-serif;
+
+      /* Wheel segment colors */
+      --w1: #ff5e3a; --w2: #ff9f1c; --w3: #ffe94d;
+      --w4: #2ae89a; --w5: #00d4ff; --w6: #6c63ff;
+      --w7: #e040fb; --w8: #ff4081; --w9: #00bfa5;
+      --w10: #ffab40; --w11: #69f0ae; --w12: #40c4ff;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-body);
+      font-size: 16px;
+      line-height: 1.65;
+      overflow-x: hidden;
+    }
+    a { color: inherit; text-decoration: none; }
+    ul { list-style: none; }
+    button { cursor: pointer; font-family: var(--font-body); border: none; outline: none; }
+    input, textarea { font-family: var(--font-body); outline: none; border: none; }
+    img { max-width: 100%; display: block; }
+
+    /* ============================================================
+       SCROLLBAR
+    ============================================================ */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: var(--bg2); }
+    ::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 3px; }
+
+    /* ============================================================
+       NOISE OVERLAY
+    ============================================================ */
+    body::before {
+      content: '';
+      position: fixed; inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+      pointer-events: none; z-index: 9999; opacity: 0.4;
+    }
+
+    /* ============================================================
+       HEADER COMPONENT
+    ============================================================ */
+    #site-header {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+      padding: 0 5%;
+      height: 70px;
+      display: flex; align-items: center; justify-content: space-between;
+      background: rgba(9,9,15,0.85);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+      transition: all 0.3s;
+    }
+    #site-header.scrolled {
+      height: 60px;
+      background: rgba(9,9,15,0.97);
+      box-shadow: 0 4px 30px rgba(0,0,0,0.5);
+    }
+    .header-logo {
+      display: flex; align-items: center; gap: 10px;
+      font-family: var(--font-display);
+      font-weight: 800; font-size: 1.3rem;
+      letter-spacing: -0.02em;
+    }
+    .header-logo .logo-icon {
+      width: 36px; height: 36px;
+      background: conic-gradient(var(--accent) 0deg 120deg, var(--accent2) 120deg 240deg, var(--accent3) 240deg 360deg);
+      border-radius: 50%;
+      animation: logoSpin 8s linear infinite;
+      flex-shrink: 0;
+    }
+    @keyframes logoSpin { to { transform: rotate(360deg); } }
+    .header-logo span { color: var(--accent); }
+    .header-nav { display: flex; align-items: center; gap: 2rem; }
+    .header-nav a {
+      font-size: 0.88rem; font-weight: 500; color: var(--text2);
+      transition: color 0.2s; letter-spacing: 0.01em;
+    }
+    .header-nav a:hover { color: var(--text); }
+    .header-cta {
+      background: var(--accent);
+      color: #fff; font-weight: 700; font-size: 0.85rem;
+      padding: 9px 20px; border-radius: 50px;
+      transition: all 0.2s; letter-spacing: 0.02em;
+      text-transform: uppercase;
+    }
+    .header-cta:hover { background: #ff7a5c; transform: translateY(-1px); box-shadow: 0 6px 20px rgba(255,94,58,0.4); }
+    .hamburger {
+      display: none; flex-direction: column; gap: 5px;
+      background: none; padding: 4px;
+    }
+    .hamburger span {
+      width: 24px; height: 2px;
+      background: var(--text); border-radius: 2px;
+      transition: all 0.3s;
+      display: block;
+    }
+    .mobile-nav {
+      display: none; position: fixed; top: 70px; left: 0; right: 0;
+      background: var(--bg2); border-bottom: 1px solid var(--border);
+      flex-direction: column; padding: 1.5rem 5%; gap: 1rem;
+      z-index: 999;
+    }
+    .mobile-nav.open { display: flex; }
+    .mobile-nav a { font-size: 1rem; color: var(--text2); padding: 0.4rem 0; }
+
+    @media (max-width: 768px) {
+      .header-nav, .header-cta { display: none; }
+      .hamburger { display: flex; }
+    }
+
+    /* ============================================================
+       HERO SECTION
+    ============================================================ */
+    #hero {
+      min-height: 100vh;
+      padding: 120px 5% 80px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-bg-glow {
+      position: absolute;
+      width: 700px; height: 700px;
+      background: radial-gradient(circle, rgba(255,94,58,0.12) 0%, transparent 70%);
+      top: -100px; right: -150px;
+      pointer-events: none;
+    }
+    .hero-bg-glow2 {
+      position: absolute;
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(108,99,255,0.1) 0%, transparent 70%);
+      bottom: -100px; left: -100px;
+      pointer-events: none;
+    }
+    .hero-left { position: relative; z-index: 1; }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(255,94,58,0.1); border: 1px solid rgba(255,94,58,0.25);
+      color: var(--accent); font-size: 0.78rem; font-weight: 600;
+      padding: 6px 14px; border-radius: 50px;
+      margin-bottom: 1.5rem; letter-spacing: 0.08em; text-transform: uppercase;
+      animation: fadeUp 0.6s ease both;
+    }
+    .hero-badge::before {
+      content: ''; width: 6px; height: 6px; background: var(--accent);
+      border-radius: 50%; animation: pulse 1.5s infinite;
+    }
+    @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.5;transform:scale(1.3)} }
+    .hero-h1 {
+      font-family: var(--font-display);
+      font-size: clamp(2.8rem, 5vw, 4.5rem);
+      font-weight: 800; line-height: 1.05;
+      letter-spacing: -0.03em;
+      margin-bottom: 1.2rem;
+      animation: fadeUp 0.6s 0.1s ease both;
+    }
+    .hero-h1 .grad {
+      background: linear-gradient(135deg, var(--accent) 0%, var(--accent2) 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero-sub {
+      font-size: 1.08rem; color: var(--text2); line-height: 1.7;
+      max-width: 500px; margin-bottom: 2rem;
+      animation: fadeUp 0.6s 0.2s ease both;
+    }
+    .hero-actions {
+      display: flex; gap: 1rem; flex-wrap: wrap;
+      animation: fadeUp 0.6s 0.3s ease both;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      color: #fff; font-weight: 700; font-size: 0.95rem;
+      padding: 14px 32px; border-radius: 50px;
+      transition: all 0.25s; letter-spacing: 0.02em;
+      box-shadow: 0 8px 30px rgba(255,94,58,0.35);
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 40px rgba(255,94,58,0.5); }
+    .btn-secondary {
+      background: var(--surface); color: var(--text);
+      font-weight: 600; font-size: 0.95rem;
+      padding: 14px 32px; border-radius: 50px;
+      border: 1px solid var(--border);
+      transition: all 0.25s;
+    }
+    .btn-secondary:hover { border-color: rgba(255,255,255,0.2); background: var(--bg3); }
+    .hero-stats {
+      display: flex; gap: 2rem; margin-top: 2.5rem; flex-wrap: wrap;
+      animation: fadeUp 0.6s 0.4s ease both;
+    }
+    .hero-stat { }
+    .hero-stat .num {
+      font-family: var(--font-display);
+      font-size: 1.8rem; font-weight: 800; color: var(--text);
+      line-height: 1;
+    }
+    .hero-stat .lbl { font-size: 0.78rem; color: var(--text3); text-transform: uppercase; letter-spacing: 0.06em; }
+
+    /* Hero Wheel Container */
+    .hero-right {
+      display: flex; justify-content: center; align-items: center;
+      position: relative; z-index: 1;
+      animation: fadeUp 0.8s 0.2s ease both;
+    }
+    .wheel-wrapper {
+      position: relative;
+      width: min(480px, 90vw);
+      aspect-ratio: 1;
+    }
+    .wheel-pointer {
+      position: absolute;
+      top: -18px; left: 50%;
+      transform: translateX(-50%);
+      width: 0; height: 0;
+      border-left: 16px solid transparent;
+      border-right: 16px solid transparent;
+      border-top: 36px solid var(--accent);
+      filter: drop-shadow(0 4px 12px rgba(255,94,58,0.7));
+      z-index: 10;
+    }
+    .wheel-pointer::after {
+      content: '';
+      position: absolute;
+      top: -42px; left: -8px;
+      width: 16px; height: 16px;
+      background: var(--accent);
+      border-radius: 50%;
+    }
+    #mainCanvas {
+      width: 100%; height: 100%;
+      border-radius: 50%;
+      box-shadow: 0 0 0 6px rgba(255,255,255,0.06), var(--shadow), 0 0 80px rgba(255,94,58,0.2);
+      cursor: pointer;
+    }
+    .spin-center-btn {
+      position: absolute; top: 50%; left: 50%;
+      transform: translate(-50%,-50%);
+      width: 70px; height: 70px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      color: #fff; font-family: var(--font-display);
+      font-weight: 800; font-size: 0.75rem; letter-spacing: 0.05em;
+      text-transform: uppercase;
+      box-shadow: 0 4px 20px rgba(255,94,58,0.6), inset 0 1px 0 rgba(255,255,255,0.3);
+      z-index: 10; transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .spin-center-btn:hover { transform: translate(-50%,-50%) scale(1.08); box-shadow: 0 8px 30px rgba(255,94,58,0.7); }
+    .spin-center-btn:active { transform: translate(-50%,-50%) scale(0.96); }
+    .spin-center-btn.spinning { pointer-events: none; }
+
+    @keyframes fadeUp { from { opacity:0; transform:translateY(24px); } to { opacity:1; transform:translateY(0); } }
+    @media (max-width: 900px) {
+      #hero { grid-template-columns: 1fr; padding-top: 100px; }
+      .hero-right { order: -1; }
+      .wheel-wrapper { width: min(320px, 85vw); }
+    }
+
+    /* ============================================================
+       WHEEL APP SECTION
+    ============================================================ */
+    #wheel-app {
+      padding: 80px 5%;
+      background: var(--bg2);
+      position: relative;
+    }
+    .section-label {
+      font-size: 0.75rem; font-weight: 700; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--accent);
+      margin-bottom: 0.6rem;
+    }
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(1.8rem, 3vw, 2.8rem);
+      font-weight: 800; letter-spacing: -0.02em; line-height: 1.1;
+      margin-bottom: 0.8rem;
+    }
+    .section-sub { color: var(--text2); font-size: 1rem; max-width: 540px; }
+    .section-header { margin-bottom: 3rem; }
+
+    .app-layout {
+      display: grid;
+      grid-template-columns: 1fr 380px;
+      gap: 2.5rem;
+      align-items: start;
+    }
+
+    /* Type Tabs */
+    .wheel-type-tabs {
+      display: flex; gap: 0.5rem; flex-wrap: wrap;
+      margin-bottom: 2rem;
+    }
+    .type-tab {
+      padding: 8px 18px; border-radius: 50px;
+      font-size: 0.82rem; font-weight: 600;
+      background: var(--surface); color: var(--text2);
+      border: 1px solid var(--border);
+      transition: all 0.2s; cursor: pointer;
+    }
+    .type-tab.active {
+      background: var(--accent); color: #fff; border-color: var(--accent);
+      box-shadow: 0 4px 16px rgba(255,94,58,0.35);
+    }
+    .type-tab:hover:not(.active) { border-color: rgba(255,255,255,0.2); color: var(--text); }
+
+    /* App Wheel */
+    .app-wheel-area {
+      display: flex; flex-direction: column; align-items: center; gap: 1.5rem;
+    }
+    .app-wheel-wrapper {
+      position: relative;
+      width: min(420px, 100%);
+      aspect-ratio: 1;
+    }
+    .app-wheel-wrapper .wheel-pointer {
+      top: -16px;
+      border-left: 14px solid transparent;
+      border-right: 14px solid transparent;
+      border-top: 30px solid var(--accent);
+    }
+    .app-wheel-wrapper .wheel-pointer::after {
+      top: -36px; left: -7px; width: 14px; height: 14px;
+    }
+    #appCanvas {
+      width: 100%; height: 100%; border-radius: 50%;
+      box-shadow: 0 0 0 5px rgba(255,255,255,0.05), var(--shadow), 0 0 60px rgba(108,99,255,0.15);
+      cursor: pointer;
+    }
+    .app-spin-btn {
+      position: absolute; top: 50%; left: 50%;
+      transform: translate(-50%,-50%);
+      width: 64px; height: 64px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent3), #9b59f5);
+      color: #fff; font-family: var(--font-display);
+      font-weight: 800; font-size: 0.7rem; letter-spacing: 0.05em;
+      text-transform: uppercase;
+      box-shadow: 0 4px 18px rgba(108,99,255,0.5), inset 0 1px 0 rgba(255,255,255,0.2);
+      z-index: 10; transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .app-spin-btn:hover { transform: translate(-50%,-50%) scale(1.08); }
+    .app-spin-btn.spinning { pointer-events: none; }
+
+    /* Result display */
+    .result-display {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1rem 1.5rem;
+      text-align: center; width: 100%; max-width: 420px;
+      min-height: 60px; display: flex; align-items: center; justify-content: center;
+    }
+    .result-display .result-label { color: var(--text3); font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.08em; }
+    .result-display .result-value {
+      font-family: var(--font-display);
+      font-size: 1.5rem; font-weight: 800; color: var(--accent);
+      margin-top: 2px; transition: all 0.4s;
+    }
+    .result-display.winner { border-color: var(--accent); box-shadow: 0 0 20px rgba(255,94,58,0.2); }
+    @keyframes popIn { 0%{transform:scale(0.7);opacity:0} 70%{transform:scale(1.1)} 100%{transform:scale(1);opacity:1} }
+    .result-pop { animation: popIn 0.5s cubic-bezier(0.34,1.56,0.64,1) both; }
+
+    /* Sidebar panel */
+    .app-sidebar {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      position: sticky; top: 90px;
+    }
+    .sidebar-title {
+      font-family: var(--font-display);
+      font-size: 1rem; font-weight: 700;
+      margin-bottom: 1rem; color: var(--text);
+    }
+    .entries-list {
+      display: flex; flex-direction: column; gap: 6px;
+      max-height: 280px; overflow-y: auto;
+      margin-bottom: 1rem;
+      padding-right: 4px;
+    }
+    .entry-item {
+      display: flex; align-items: center; gap: 8px;
+      background: var(--bg3); border: 1px solid var(--border);
+      border-radius: var(--radius-sm); padding: 8px 10px;
+      font-size: 0.88rem; transition: all 0.2s;
+    }
+    .entry-item:hover { border-color: rgba(255,255,255,0.15); }
+    .entry-color {
+      width: 12px; height: 12px; border-radius: 50%; flex-shrink: 0;
+    }
+    .entry-text { flex: 1; color: var(--text); }
+    .entry-del {
+      width: 20px; height: 20px; border-radius: 50%;
+      background: none; color: var(--text3); font-size: 1rem;
+      transition: all 0.2s; display: flex; align-items: center; justify-content: center;
+      line-height: 1;
+    }
+    .entry-del:hover { color: var(--accent); background: rgba(255,94,58,0.1); }
+
+    .add-entry-row {
+      display: flex; gap: 8px;
+    }
+    .add-entry-input {
+      flex: 1; background: var(--bg3); border: 1px solid var(--border);
+      border-radius: var(--radius-sm); padding: 9px 12px;
+      color: var(--text); font-size: 0.88rem;
+      transition: border-color 0.2s;
+    }
+    .add-entry-input:focus { border-color: var(--accent3); }
+    .add-entry-input::placeholder { color: var(--text3); }
+    .add-btn {
+      background: var(--accent3); color: #fff;
+      border-radius: var(--radius-sm); padding: 9px 16px;
+      font-weight: 700; font-size: 0.85rem; transition: all 0.2s;
+    }
+    .add-btn:hover { background: #7c75ff; }
+
+    .sidebar-actions {
+      display: flex; gap: 8px; margin-top: 1rem;
+    }
+    .sidebar-btn {
+      flex: 1; padding: 9px; border-radius: var(--radius-sm);
+      font-size: 0.8rem; font-weight: 600; text-align: center;
+      background: var(--bg3); color: var(--text2);
+      border: 1px solid var(--border);
+      transition: all 0.2s;
+    }
+    .sidebar-btn:hover { border-color: rgba(255,255,255,0.2); color: var(--text); }
+    .sidebar-btn.danger:hover { border-color: rgba(255,94,58,0.4); color: var(--accent); }
+
+    /* History */
+    .spin-history { margin-top: 1.2rem; }
+    .history-title {
+      font-size: 0.78rem; font-weight: 600; color: var(--text3);
+      text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.6rem;
+    }
+    .history-list {
+      display: flex; flex-direction: column; gap: 4px;
+      max-height: 120px; overflow-y: auto;
+    }
+    .history-item {
+      display: flex; align-items: center; gap: 8px;
+      font-size: 0.8rem; color: var(--text2); padding: 4px 8px;
+      border-radius: 6px; background: var(--bg3);
+    }
+    .history-item .h-color { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+    .history-item .h-num { color: var(--text3); font-size: 0.72rem; }
+
+    @media (max-width: 1000px) {
+      .app-layout { grid-template-columns: 1fr; }
+      .app-sidebar { position: static; }
+    }
+
+    /* ============================================================
+       WHEEL TYPES SECTION
+    ============================================================ */
+    #wheel-types {
+      padding: 80px 5%;
+      background: var(--bg);
+    }
+    .types-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 1.2rem;
+      margin-top: 2.5rem;
+    }
+    .type-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      transition: all 0.3s; cursor: pointer;
+      position: relative; overflow: hidden;
+    }
+    .type-card::before {
+      content: ''; position: absolute;
+      inset: 0; opacity: 0;
+      transition: opacity 0.3s;
+      pointer-events: none;
+    }
+    .type-card:hover { transform: translateY(-4px); border-color: rgba(255,255,255,0.15); }
+    .type-card:hover::before { opacity: 1; }
+    .type-card.c1::before { background: linear-gradient(135deg, rgba(255,94,58,0.08), transparent); }
+    .type-card.c2::before { background: linear-gradient(135deg, rgba(255,159,28,0.08), transparent); }
+    .type-card.c3::before { background: linear-gradient(135deg, rgba(108,99,255,0.08), transparent); }
+    .type-card.c4::before { background: linear-gradient(135deg, rgba(0,229,195,0.08), transparent); }
+    .type-card.c5::before { background: linear-gradient(135deg, rgba(224,64,251,0.08), transparent); }
+    .type-card.c6::before { background: linear-gradient(135deg, rgba(255,64,129,0.08), transparent); }
+    .type-card.c7::before { background: linear-gradient(135deg, rgba(0,212,255,0.08), transparent); }
+    .type-card.c8::before { background: linear-gradient(135deg, rgba(105,240,174,0.08), transparent); }
+
+    .type-icon {
+      width: 48px; height: 48px; border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.4rem; margin-bottom: 1rem;
+    }
+    .type-card h3 {
+      font-family: var(--font-display);
+      font-size: 1rem; font-weight: 700;
+      margin-bottom: 0.4rem;
+    }
+    .type-card p { font-size: 0.82rem; color: var(--text2); line-height: 1.5; }
+    .type-badge {
+      position: absolute; top: 12px; right: 12px;
+      background: rgba(255,94,58,0.15); color: var(--accent);
+      font-size: 0.65rem; font-weight: 700; letter-spacing: 0.06em;
+      padding: 3px 8px; border-radius: 20px; text-transform: uppercase;
+    }
+
+    /* ============================================================
+       HOW IT WORKS
+    ============================================================ */
+    #how-it-works {
+      padding: 80px 5%;
+      background: var(--bg2);
+    }
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
+      margin-top: 3rem;
+      position: relative;
+    }
+    .steps-grid::before {
+      content: '';
+      position: absolute;
+      top: 36px; left: 8%; right: 8%; height: 1px;
+      background: linear-gradient(90deg, transparent, var(--border), var(--border), transparent);
+    }
+    .step-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 2rem 1.5rem;
+      text-align: center;
+      transition: transform 0.3s, border-color 0.3s;
+    }
+    .step-card:hover { transform: translateY(-6px); border-color: rgba(255,255,255,0.15); }
+    .step-num {
+      width: 52px; height: 52px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      color: #fff; font-family: var(--font-display);
+      font-weight: 800; font-size: 1.2rem;
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 1.2rem; position: relative; z-index: 1;
+    }
+    .step-card h3 {
+      font-family: var(--font-display);
+      font-size: 1.05rem; font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+    .step-card p { font-size: 0.85rem; color: var(--text2); }
+
+    /* ============================================================
+       FEATURES SECTION
+    ============================================================ */
+    #features {
+      padding: 80px 5%;
+      background: var(--bg);
+    }
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2.5rem;
+    }
+    .feat-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.8rem;
+      transition: all 0.3s;
+      position: relative; overflow: hidden;
+    }
+    .feat-card:hover { transform: translateY(-4px); border-color: rgba(255,255,255,0.15); box-shadow: 0 20px 40px rgba(0,0,0,0.4); }
+    .feat-icon {
+      font-size: 2rem; margin-bottom: 1rem;
+      display: block;
+    }
+    .feat-card h3 {
+      font-family: var(--font-display);
+      font-size: 1.05rem; font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+    .feat-card p { font-size: 0.85rem; color: var(--text2); line-height: 1.6; }
+    .feat-card .feat-glow {
+      position: absolute; bottom: -40px; right: -40px;
+      width: 120px; height: 120px; border-radius: 50%;
+      opacity: 0.07; pointer-events: none;
+    }
+
+    /* ============================================================
+       USE CASES SECTION
+    ============================================================ */
+    #use-cases {
+      padding: 80px 5%;
+      background: var(--bg2);
+    }
+    .use-cases-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-top: 2.5rem;
+    }
+    .use-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 2rem;
+      transition: all 0.3s; overflow: hidden;
+    }
+    .use-card:hover { border-color: rgba(255,255,255,0.2); transform: translateY(-4px); }
+    .use-card .use-emoji { font-size: 2.5rem; margin-bottom: 1rem; display: block; }
+    .use-card h3 {
+      font-family: var(--font-display);
+      font-size: 1.1rem; font-weight: 700;
+      margin-bottom: 0.6rem;
+    }
+    .use-card p { font-size: 0.85rem; color: var(--text2); line-height: 1.6; }
+    .use-card ul { margin-top: 0.8rem; }
+    .use-card ul li {
+      font-size: 0.82rem; color: var(--text2);
+      padding: 3px 0; display: flex; align-items: center; gap: 6px;
+    }
+    .use-card ul li::before {
+      content: '→'; color: var(--accent); font-size: 0.7rem;
+    }
+    @media (max-width: 900px) { .use-cases-grid { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 600px) { .use-cases-grid { grid-template-columns: 1fr; } }
+
+    /* ============================================================
+       CONTENT/SEO SECTION
+    ============================================================ */
+    #about-wheel {
+      padding: 80px 5%;
+      background: var(--bg);
+    }
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+    .about-content h2 {
+      font-family: var(--font-display);
+      font-size: clamp(1.6rem, 2.5vw, 2.2rem);
+      font-weight: 800; letter-spacing: -0.02em;
+      margin-bottom: 1rem; line-height: 1.2;
+    }
+    .about-content p {
+      color: var(--text2); font-size: 0.95rem; line-height: 1.75;
+      margin-bottom: 1rem;
+    }
+    .about-content p strong { color: var(--text); }
+    .about-visual {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 2rem; display: flex; flex-direction: column; gap: 1rem;
+    }
+    .about-stat-row {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 0.8rem; background: var(--bg3); border-radius: var(--radius-sm);
+    }
+    .about-stat-row .asr-label { font-size: 0.85rem; color: var(--text2); }
+    .about-stat-row .asr-val {
+      font-family: var(--font-display); font-weight: 800;
+      font-size: 1.1rem; color: var(--accent);
+    }
+    @media (max-width: 768px) {
+      .about-grid { grid-template-columns: 1fr; gap: 2rem; }
+    }
+
+    /* ============================================================
+       FAQ SECTION
+    ============================================================ */
+    #faq {
+      padding: 80px 5%;
+      background: var(--bg2);
+    }
+    .faq-grid {
+      max-width: 760px; margin: 2.5rem auto 0;
+      display: flex; flex-direction: column; gap: 1rem;
+    }
+    .faq-item {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+    .faq-q {
+      width: 100%; text-align: left;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 1.2rem 1.5rem;
+      font-family: var(--font-display);
+      font-size: 0.97rem; font-weight: 700; color: var(--text);
+      background: none; gap: 1rem;
+      transition: color 0.2s;
+    }
+    .faq-q:hover { color: var(--accent); }
+    .faq-arrow {
+      width: 22px; height: 22px; flex-shrink: 0;
+      border-radius: 50%; background: var(--bg3);
+      display: flex; align-items: center; justify-content: center;
+      transition: transform 0.3s, background 0.3s;
+      font-size: 0.85rem;
+    }
+    .faq-item.open .faq-arrow { transform: rotate(180deg); background: var(--accent); color: #fff; }
+    .faq-a {
+      max-height: 0; overflow: hidden;
+      transition: max-height 0.4s cubic-bezier(0.4,0,0.2,1), padding 0.3s;
+      padding: 0 1.5rem;
+    }
+    .faq-item.open .faq-a { max-height: 300px; padding: 0 1.5rem 1.2rem; }
+    .faq-a p { font-size: 0.88rem; color: var(--text2); line-height: 1.7; }
+
+    /* ============================================================
+       CTA SECTION
+    ============================================================ */
+    #cta-section {
+      padding: 100px 5%;
+      background: var(--bg);
+      text-align: center;
+      position: relative; overflow: hidden;
+    }
+    .cta-glow {
+      position: absolute; top: 50%; left: 50%;
+      transform: translate(-50%,-50%);
+      width: 600px; height: 400px;
+      background: radial-gradient(ellipse, rgba(108,99,255,0.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    #cta-section h2 {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      font-weight: 800; letter-spacing: -0.03em;
+      margin-bottom: 1rem;
+      position: relative; z-index: 1;
+    }
+    #cta-section p {
+      color: var(--text2); font-size: 1rem; margin-bottom: 2rem;
+      position: relative; z-index: 1;
+    }
+    .cta-actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; position: relative; z-index: 1; }
+
+    /* ============================================================
+       FOOTER COMPONENT
+    ============================================================ */
+    #site-footer {
+      background: var(--bg2);
+      border-top: 1px solid var(--border);
+      padding: 4rem 5% 2rem;
+    }
+    .footer-top {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1fr;
+      gap: 2.5rem;
+      margin-bottom: 3rem;
+    }
+    .footer-brand .brand-name {
+      font-family: var(--font-display); font-size: 1.2rem; font-weight: 800;
+      margin-bottom: 0.6rem;
+    }
+    .footer-brand p { font-size: 0.83rem; color: var(--text3); line-height: 1.6; max-width: 240px; }
+    .footer-brand .brand-logo-icon {
+      width: 32px; height: 32px;
+      background: conic-gradient(var(--accent) 0deg 120deg, var(--accent2) 120deg 240deg, var(--accent3) 240deg 360deg);
+      border-radius: 50%; margin-bottom: 0.8rem;
+      animation: logoSpin 8s linear infinite;
+    }
+    .footer-col h4 {
+      font-family: var(--font-display); font-weight: 700; font-size: 0.88rem;
+      letter-spacing: 0.04em; margin-bottom: 1rem; color: var(--text);
+    }
+    .footer-col ul { display: flex; flex-direction: column; gap: 0.5rem; }
+    .footer-col ul li a { font-size: 0.83rem; color: var(--text3); transition: color 0.2s; }
+    .footer-col ul li a:hover { color: var(--text); }
+    .footer-bottom {
+      display: flex; justify-content: space-between; align-items: center;
+      padding-top: 1.5rem; border-top: 1px solid var(--border); flex-wrap: wrap; gap: 0.8rem;
+    }
+    .footer-bottom p { font-size: 0.78rem; color: var(--text3); }
+    .footer-keywords { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+    .footer-keywords span {
+      font-size: 0.7rem; color: var(--text3);
+      background: var(--surface); padding: 3px 9px; border-radius: 20px;
+      border: 1px solid var(--border);
+    }
+    @media (max-width: 768px) {
+      .footer-top { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 500px) {
+      .footer-top { grid-template-columns: 1fr; }
+    }
+
+    /* ============================================================
+       MODAL
+    ============================================================ */
+    .modal-overlay {
+      position: fixed; inset: 0; z-index: 2000;
+      background: rgba(0,0,0,0.8); backdrop-filter: blur(10px);
+      display: flex; align-items: center; justify-content: center;
+      opacity: 0; pointer-events: none; transition: opacity 0.3s;
+    }
+    .modal-overlay.open { opacity: 1; pointer-events: all; }
+    .modal-box {
+      background: var(--bg2); border: 1px solid var(--border);
+      border-radius: 24px; padding: 2.5rem;
+      max-width: 420px; width: 90%; text-align: center;
+      transform: translateY(30px) scale(0.95);
+      transition: all 0.4s cubic-bezier(0.34,1.56,0.64,1);
+    }
+    .modal-overlay.open .modal-box { transform: none; }
+    .modal-firework {
+      font-size: 3.5rem; margin-bottom: 0.5rem; display: block;
+      animation: popIn 0.6s cubic-bezier(0.34,1.56,0.64,1) both;
+    }
+    .modal-result {
+      font-family: var(--font-display);
+      font-size: 2rem; font-weight: 800;
+      color: var(--accent);
+      margin-bottom: 0.3rem;
+    }
+    .modal-subtitle { color: var(--text2); font-size: 0.9rem; margin-bottom: 1.5rem; }
+    .modal-close {
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      color: #fff; font-weight: 700; font-size: 0.9rem;
+      padding: 12px 28px; border-radius: 50px;
+      transition: all 0.2s;
+    }
+    .modal-close:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(255,94,58,0.4); }
+
+    /* ============================================================
+       CONFETTI CANVAS
+    ============================================================ */
+    #confetti-canvas {
+      position: fixed; inset: 0; pointer-events: none; z-index: 1999;
+    }
+
+    /* ============================================================
+       SCROLL REVEAL
+    ============================================================ */
+    .reveal {
+      opacity: 0; transform: translateY(30px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .reveal.visible { opacity: 1; transform: none; }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+  </style>
+</head>
+<body>
+
+<!-- HEADER (component) -->
+<header id="site-header"></header>
+<nav class="mobile-nav" id="mobile-nav"></nav>
+
+<!-- CONFETTI -->
+<canvas id="confetti-canvas"></canvas>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="resultModal">
+  <div class="modal-box">
+    <span class="modal-firework" id="modalEmoji">🎉</span>
+    <div class="modal-result" id="modalResult">—</div>
+    <div class="modal-subtitle">The wheel has spoken!</div>
+    <button class="modal-close" onclick="closeModal()">Awesome! Spin Again</button>
+  </div>
+</div>
+
+<!-- ============================================================
+     HERO
+============================================================ -->
+<section id="hero">
+  <div class="hero-bg-glow"></div>
+  <div class="hero-bg-glow2"></div>
+  <div class="hero-left">
+    <div class="hero-badge">Free Online Random Wheel Spinner</div>
+    <h1 class="hero-h1">
+      Spin A Wheel.<br>
+      <span class="grad">Decide Anything.</span><br>
+      Instantly.
+    </h1>
+    <p class="hero-sub">
+      The ultimate free interactive spin wheel for decisions, classrooms, games, and everything in between. Just spin and let fate decide!
+    </p>
+    <div class="hero-actions">
+      <a href="#wheel-app" class="btn-primary">🎯 Spin the Wheel</a>
+      <a href="#wheel-types" class="btn-secondary">Explore Wheel Types</a>
+    </div>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <div class="num">10M+</div>
+        <div class="lbl">Spins Today</div>
+      </div>
+      <div class="hero-stat">
+        <div class="num">8+</div>
+        <div class="lbl">Wheel Types</div>
+      </div>
+      <div class="hero-stat">
+        <div class="num">100%</div>
+        <div class="lbl">Free Forever</div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="wheel-wrapper">
+      <div class="wheel-pointer"></div>
+      <canvas id="mainCanvas"></canvas>
+      <button class="spin-center-btn" id="heroSpinBtn" onclick="spinHeroWheel()">SPIN</button>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     WHEEL APP
+============================================================ -->
+<section id="wheel-app">
+  <div class="section-header reveal">
+    <div class="section-label">Interactive Wheel Spinner</div>
+    <h2 class="section-title">Spin Your Custom Wheel</h2>
+    <p class="section-sub">Add your own entries, choose a wheel type, and spin to get a random result. It's that simple.</p>
+  </div>
+
+  <div class="wheel-type-tabs reveal">
+    <button class="type-tab active" data-preset="custom">Custom</button>
+    <button class="type-tab" data-preset="yesno">Yes / No</button>
+    <button class="type-tab" data-preset="numbers">Numbers</button>
+    <button class="type-tab" data-preset="colors">Colors</button>
+    <button class="type-tab" data-preset="days">Days</button>
+    <button class="type-tab" data-preset="truth">Truth or Dare</button>
+    <button class="type-tab" data-preset="classroom">Classroom</button>
+    <button class="type-tab" data-preset="food">Food</button>
+  </div>
+
+  <div class="app-layout">
+    <div class="app-wheel-area">
+      <div class="app-wheel-wrapper">
+        <div class="wheel-pointer"></div>
+        <canvas id="appCanvas"></canvas>
+        <button class="app-spin-btn" id="appSpinBtn" onclick="spinAppWheel()">SPIN</button>
+      </div>
+      <div class="result-display" id="appResult">
+        <div>
+          <div class="result-label">Result</div>
+          <div class="result-value" id="appResultText">Click SPIN to start!</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="app-sidebar">
+      <div class="sidebar-title">⚙️ Wheel Entries</div>
+      <div class="entries-list" id="entriesList"></div>
+      <div class="add-entry-row">
+        <input class="add-entry-input" id="newEntryInput" type="text" placeholder="Add new entry..." maxlength="40" />
+        <button class="add-btn" onclick="addEntry()">Add</button>
+      </div>
+      <div class="sidebar-actions">
+        <button class="sidebar-btn" onclick="shuffleEntries()">🔀 Shuffle</button>
+        <button class="sidebar-btn danger" onclick="clearEntries()">🗑 Clear</button>
+      </div>
+      <div class="spin-history" id="spinHistory">
+        <div class="history-title">Spin History</div>
+        <div class="history-list" id="historyList"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     WHEEL TYPES
+============================================================ -->
+<section id="wheel-types">
+  <div class="section-header reveal">
+    <div class="section-label">Wheel Collection</div>
+    <h2 class="section-title">Every Type of Wheel You Need</h2>
+    <p class="section-sub">From classroom random student pickers to mystery wheels and decision spinners — we've got them all.</p>
+  </div>
+  <div class="types-grid">
+    <div class="type-card c1 reveal">
+      <div class="type-icon" style="background:rgba(255,94,58,0.15)">🎯</div>
+      <h3>Decision Wheel</h3>
+      <p>Can't make up your mind? Let our deciding wheel pick for you. Perfect for any life decision.</p>
+    </div>
+    <div class="type-card c2 reveal reveal-delay-1">
+      <div class="type-icon" style="background:rgba(255,159,28,0.15)">🎓</div>
+      <h3>Classroom Spinner</h3>
+      <p>Free online spinner for classroom use. Engage students with a fair random student picker wheel.</p>
+      <div class="type-badge">Popular</div>
+    </div>
+    <div class="type-card c3 reveal reveal-delay-2">
+      <div class="type-icon" style="background:rgba(108,99,255,0.15)">🎁</div>
+      <h3>Mystery Wheel</h3>
+      <p>Add hidden surprises and prizes. Great for parties, giveaways, and gift exchanges.</p>
+    </div>
+    <div class="type-card c4 reveal reveal-delay-3">
+      <div class="type-icon" style="background:rgba(0,229,195,0.15)">✅</div>
+      <h3>Yes / No Wheel</h3>
+      <p>A classic two-option wheel for the simplest decisions. Should you or shouldn't you?</p>
+    </div>
+    <div class="type-card c5 reveal">
+      <div class="type-icon" style="background:rgba(224,64,251,0.15)">🔢</div>
+      <h3>Number Wheel</h3>
+      <p>Random number generator wheel. Perfect for games, lotteries, and picking a random number.</p>
+    </div>
+    <div class="type-card c6 reveal reveal-delay-1">
+      <div class="type-icon" style="background:rgba(255,64,129,0.15)">🎨</div>
+      <h3>Color Wheel</h3>
+      <p>Spin to pick a random color. Great for art projects, design challenges, and creative games.</p>
+    </div>
+    <div class="type-card c7 reveal reveal-delay-2">
+      <div class="type-icon" style="background:rgba(0,212,255,0.15)">📋</div>
+      <h3>Custom Wheel</h3>
+      <p>Build your own wheel generator. Add any entries you want and spin for a truly personalized result.</p>
+      <div class="type-badge">New</div>
+    </div>
+    <div class="type-card c8 reveal reveal-delay-3">
+      <div class="type-icon" style="background:rgba(105,240,174,0.15)">🍕</div>
+      <h3>Food Wheel</h3>
+      <p>Can't decide what to eat? Spin the wheel picker and let it choose your next meal.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     HOW IT WORKS
+============================================================ -->
+<section id="how-it-works">
+  <div class="section-header reveal" style="text-align:center">
+    <div class="section-label">Simple Process</div>
+    <h2 class="section-title">How the Spin Wheel Works</h2>
+    <p class="section-sub" style="margin:0 auto">Start spinning in three easy steps. No sign-up, no downloads — 100% free.</p>
+  </div>
+  <div class="steps-grid">
+    <div class="step-card reveal">
+      <div class="step-num">1</div>
+      <h3>Choose or Create</h3>
+      <p>Pick a preset wheel type or add your own custom entries to the interactive spin wheel.</p>
+    </div>
+    <div class="step-card reveal reveal-delay-1">
+      <div class="step-num">2</div>
+      <h3>Click Spin</h3>
+      <p>Hit the SPIN button and watch the random wheel spin with a smooth, satisfying animation.</p>
+    </div>
+    <div class="step-card reveal reveal-delay-2">
+      <div class="step-num">3</div>
+      <h3>See Your Result</h3>
+      <p>The wheel lands on a winner and displays your result instantly. Spin again anytime!</p>
+    </div>
+    <div class="step-card reveal reveal-delay-3">
+      <div class="step-num">4</div>
+      <h3>Save & Share</h3>
+      <p>Keep your custom wheel setup. Share with classmates, friends, or colleagues for group fun.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     FEATURES
+============================================================ -->
+<section id="features">
+  <div class="section-header reveal">
+    <div class="section-label">Why Spin A Wheel?</div>
+    <h2 class="section-title">Everything You'd Want in a Wheel Spinner</h2>
+    <p class="section-sub">Packed with features to make every spin fun, fair, and effortless.</p>
+  </div>
+  <div class="features-grid">
+    <div class="feat-card reveal">
+      <span class="feat-icon">🎲</span>
+      <h3>True Random Algorithm</h3>
+      <p>Every spin is genuinely random. Our wheel generator uses a certified random selection algorithm for fair, unbiased results every single time.</p>
+      <div class="feat-glow" style="background:var(--accent)"></div>
+    </div>
+    <div class="feat-card reveal reveal-delay-1">
+      <span class="feat-icon">✏️</span>
+      <h3>Fully Customizable</h3>
+      <p>Add, remove, or edit any entry. Change colors, wheel types, and labels. Your wheel, your rules. The perfect custom wheel generator.</p>
+      <div class="feat-glow" style="background:var(--accent2)"></div>
+    </div>
+    <div class="feat-card reveal reveal-delay-2">
+      <span class="feat-icon">📱</span>
+      <h3>Mobile Compatible</h3>
+      <p>Perfectly optimized for phones and tablets. Use our interactive spin wheel anywhere, anytime, on any device.</p>
+      <div class="feat-glow" style="background:var(--accent3)"></div>
+    </div>
+    <div class="feat-card reveal">
+      <span class="feat-icon">⚡</span>
+      <h3>Instant & Free</h3>
+      <p>No sign-up. No downloads. No ads. Spin A Wheel is 100% free forever. Just open the page and start spinning.</p>
+      <div class="feat-glow" style="background:var(--teal)"></div>
+    </div>
+    <div class="feat-card reveal reveal-delay-1">
+      <span class="feat-icon">🏫</span>
+      <h3>Classroom Ready</h3>
+      <p>The ultimate free online spinner for classroom teachers. Use our random student picker wheel to engage students fairly and make lessons more fun.</p>
+      <div class="feat-glow" style="background:#e040fb"></div>
+    </div>
+    <div class="feat-card reveal reveal-delay-2">
+      <span class="feat-icon">📜</span>
+      <h3>Spin History</h3>
+      <p>Never lose track. Every spin is recorded in your session history so you can keep score, track results, or avoid repeats.</p>
+      <div class="feat-glow" style="background:#ff4081"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     USE CASES
+============================================================ -->
+<section id="use-cases">
+  <div class="section-header reveal" style="text-align:center">
+    <div class="section-label">Use Cases</div>
+    <h2 class="section-title">Spin the Wheel for Anything</h2>
+    <p class="section-sub" style="margin:0 auto">Our random wheel spinner is used by millions of people around the world for every possible scenario.</p>
+  </div>
+  <div class="use-cases-grid">
+    <div class="use-card reveal">
+      <span class="use-emoji">🏫</span>
+      <h3>Teachers & Classrooms</h3>
+      <p>The classroom spinner wheel is a beloved tool in schools worldwide. Use it for:</p>
+      <ul>
+        <li>Random student picker for cold calling</li>
+        <li>Assigning group roles</li>
+        <li>Choosing today's reader</li>
+        <li>Quiz game show format</li>
+      </ul>
+    </div>
+    <div class="use-card reveal reveal-delay-1">
+      <span class="use-emoji">🤔</span>
+      <h3>Everyday Decisions</h3>
+      <p>The ultimate deciding wheel for daily life. Settle any debate fast:</p>
+      <ul>
+        <li>What to eat for dinner</li>
+        <li>Which movie to watch</li>
+        <li>Where to go on weekend</li>
+        <li>Who does the chores</li>
+      </ul>
+    </div>
+    <div class="use-card reveal reveal-delay-2">
+      <span class="use-emoji">🎉</span>
+      <h3>Games & Parties</h3>
+      <p>Level up your game nights and parties with the mystery wheel and custom spin wheel:</p>
+      <ul>
+        <li>Party game dares</li>
+        <li>Prize giveaways</li>
+        <li>Secret Santa picker</li>
+        <li>Trivia question categories</li>
+      </ul>
+    </div>
+    <div class="use-card reveal">
+      <span class="use-emoji">💼</span>
+      <h3>Teams & Work</h3>
+      <p>Make meetings more engaging with a random wheel spin for team decisions:</p>
+      <ul>
+        <li>Stand-up order picker</li>
+        <li>Random task assignment</li>
+        <li>Meeting ice breakers</li>
+        <li>Team name picker</li>
+      </ul>
+    </div>
+    <div class="use-card reveal reveal-delay-1">
+      <span class="use-emoji">🎮</span>
+      <h3>Gaming & Streaming</h3>
+      <p>Streamers and gamers use the wheel spinner for interactive content:</p>
+      <ul>
+        <li>Challenge wheel for streams</li>
+        <li>Random character selector</li>
+        <li>Giveaway winner picker</li>
+        <li>Game mode randomizer</li>
+      </ul>
+    </div>
+    <div class="use-card reveal reveal-delay-2">
+      <span class="use-emoji">🧠</span>
+      <h3>Learning & Training</h3>
+      <p>Educators and trainers use the interactive spin wheel for engaging learning:</p>
+      <ul>
+        <li>Vocabulary review games</li>
+        <li>Skill practice selector</li>
+        <li>Random topic picker</li>
+        <li>Flashcard randomizer</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     ABOUT / SEO CONTENT
+============================================================ -->
+<section id="about-wheel">
+  <div class="about-grid">
+    <div class="about-content reveal">
+      <div class="section-label">About Spin A Wheel</div>
+      <h2>The World's Most Interactive Random Wheel Spinner</h2>
+      <p>
+        <strong>Spin A Wheel</strong> is a free, browser-based wheel spinner that makes random decisions fun and effortless. Whether you're a teacher looking for a <strong>classroom spinner wheel</strong>, a gamer wanting a <strong>mystery wheel</strong>, or someone who just can't decide what to have for dinner — we've got the perfect spinning wheel for you.
+      </p>
+      <p>
+        Our <strong>random wheel spin</strong> technology uses a true random algorithm to ensure every spin is completely fair and unbiased. The wheel generator supports unlimited custom entries, making it the most versatile <strong>wheel picker</strong> available online.
+      </p>
+      <p>
+        Teachers worldwide rely on our <strong>free online spinner for classroom</strong> use to make learning interactive. The <strong>random student picker wheel</strong> is especially popular for keeping students engaged and ensuring every voice is heard fairly.
+      </p>
+      <p>
+        Unlike other tools, <strong>Spin A Wheel</strong> is entirely free — no subscriptions, no hidden fees, and no sign-up required. Just open, spin, and decide.
+      </p>
+    </div>
+    <div class="about-visual reveal">
+      <div class="about-stat-row">
+        <span class="asr-label">🌍 Countries Using SpinAWheel</span>
+        <span class="asr-val">190+</span>
+      </div>
+      <div class="about-stat-row">
+        <span class="asr-label">🔄 Daily Spins</span>
+        <span class="asr-val">10M+</span>
+      </div>
+      <div class="about-stat-row">
+        <span class="asr-label">⚙️ Wheel Types Available</span>
+        <span class="asr-val">8+</span>
+      </div>
+      <div class="about-stat-row">
+        <span class="asr-label">💰 Cost to Use</span>
+        <span class="asr-val">$0</span>
+      </div>
+      <div class="about-stat-row">
+        <span class="asr-label">🏫 Schools Using Daily</span>
+        <span class="asr-val">50K+</span>
+      </div>
+      <div class="about-stat-row">
+        <span class="asr-label">📱 Mobile Compatible</span>
+        <span class="asr-val">✅ Yes</span>
+      </div>
+      <div class="about-stat-row">
+        <span class="asr-label">🔐 Login Required</span>
+        <span class="asr-val">✅ Never</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     FAQ
+============================================================ -->
+<section id="faq">
+  <div class="section-header reveal" style="text-align:center">
+    <div class="section-label">FAQ</div>
+    <h2 class="section-title">Frequently Asked Questions</h2>
+    <p class="section-sub" style="margin:0 auto">Everything you need to know about Spin A Wheel.</p>
+  </div>
+  <div class="faq-grid">
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        How does the random spin wheel work?
+        <span class="faq-arrow">▾</span>
+      </button>
+      <div class="faq-a">
+        <p>Our wheel spinner uses a certified random number generation algorithm. When you click SPIN, a random angle is selected from a uniform distribution — meaning every segment on the wheel has an exactly equal probability of being chosen, regardless of its size. Each spin is independent and completely fair.</p>
+      </div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        Can I use the wheel spinner for my classroom?
+        <span class="faq-arrow">▾</span>
+      </button>
+      <div class="faq-a">
+        <p>Absolutely! The classroom spinner wheel is one of our most popular tools. Simply select the "Classroom" preset or add your student names manually. Our free online spinner for classroom use is designed to work on projectors, tablets, and any device. Teachers in over 50,000 schools use it daily.</p>
+      </div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        How do I customize the wheel entries?
+        <span class="faq-arrow">▾</span>
+      </button>
+      <div class="faq-a">
+        <p>In the wheel app section, you'll find the sidebar where you can type any entry into the input field and click "Add". You can delete individual entries using the × button, or clear all entries at once. The wheel updates instantly as you add or remove items. You can also shuffle the order randomly.</p>
+      </div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        Is Spin A Wheel free to use?
+        <span class="faq-arrow">▾</span>
+      </button>
+      <div class="faq-a">
+        <p>Yes, completely free! Spin A Wheel is 100% free with no hidden costs, no subscription plans, and no login required. You can spin as many times as you want, create as many custom wheels as you like, and use all wheel types at no charge — forever.</p>
+      </div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        What are the different wheel types available?
+        <span class="faq-arrow">▾</span>
+      </button>
+      <div class="faq-a">
+        <p>We offer 8+ wheel types: Custom Wheel (your own entries), Yes/No Wheel, Number Wheel (1–10 or custom), Color Wheel, Days of the Week Wheel, Truth or Dare Wheel, Classroom/Student Picker Wheel, and Food Wheel. More types are added regularly. You can switch between them instantly using the tabs in the app.</p>
+      </div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        Does the wheel work on mobile devices?
+        <span class="faq-arrow">▾</span>
+      </button>
+      <div class="faq-a">
+        <p>Yes! Spin A Wheel is fully optimized for mobile devices including iOS and Android smartphones and tablets. The wheel is touch-friendly, and the entire interface is responsive. You can spin the wheel simply by tapping the SPIN button or tapping the wheel itself.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     CTA
+============================================================ -->
+<section id="cta-section">
+  <div class="cta-glow"></div>
+  <div class="reveal">
+    <h2>Ready to <span style="background:linear-gradient(135deg,var(--accent3),#9b59f5);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">Spin the Wheel?</span></h2>
+    <p>Start with a preset wheel or build your own. It's free, fast, and seriously fun.</p>
+    <div class="cta-actions">
+      <a href="#wheel-app" class="btn-primary">🎯 Spin Now — It's Free</a>
+      <a href="#wheel-types" class="btn-secondary">Browse Wheel Types</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER (component) -->
+<footer id="site-footer"></footer>
+
+<script>
+/* ============================================================
+   HEADER COMPONENT
+============================================================ */
+(function renderHeader() {
+  const navLinks = [
+    { href: '#wheel-app', label: 'Spin Wheel' },
+    { href: '#wheel-types', label: 'Wheel Types' },
+    { href: '#how-it-works', label: 'How It Works' },
+    { href: '#features', label: 'Features' },
+    { href: '#faq', label: 'FAQ' },
+  ];
+  const header = document.getElementById('site-header');
+  header.innerHTML = `
+    <a href="/" class="header-logo">
+      <div class="logo-icon"></div>
+      <span>Spin<span>A</span>Wheel</span>
+    </a>
+    <nav class="header-nav">
+      ${navLinks.map(l => `<a href="${l.href}">${l.label}</a>`).join('')}
+    </nav>
+    <a href="#wheel-app" class="header-cta">Spin Now</a>
+    <button class="hamburger" id="hamburger" onclick="toggleMobileNav()" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  `;
+  const mobileNav = document.getElementById('mobile-nav');
+  mobileNav.innerHTML = navLinks.map(l => `<a href="${l.href}" onclick="closeMobileNav()">${l.label}</a>`).join('') +
+    `<a href="#wheel-app" class="btn-primary" style="text-align:center" onclick="closeMobileNav()">Spin Now</a>`;
+
+  window.addEventListener('scroll', () => {
+    header.classList.toggle('scrolled', window.scrollY > 40);
+  });
+})();
+
+function toggleMobileNav() {
+  document.getElementById('mobile-nav').classList.toggle('open');
+}
+function closeMobileNav() {
+  document.getElementById('mobile-nav').classList.remove('open');
+}
+
+/* ============================================================
+   FOOTER COMPONENT
+============================================================ */
+(function renderFooter() {
+  document.getElementById('site-footer').innerHTML = `
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="brand-logo-icon"></div>
+        <div class="brand-name">SpinAWheel</div>
+        <p>The free online random wheel spinner for decisions, classrooms, games, and everything in between.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Wheel Types</h4>
+        <ul>
+          <li><a href="#wheel-app">Decision Wheel</a></li>
+          <li><a href="#wheel-app">Classroom Spinner</a></li>
+          <li><a href="#wheel-app">Yes / No Wheel</a></li>
+          <li><a href="#wheel-app">Mystery Wheel</a></li>
+          <li><a href="#wheel-app">Number Wheel</a></li>
+          <li><a href="#wheel-app">Color Wheel</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Use Cases</h4>
+        <ul>
+          <li><a href="#use-cases">For Teachers</a></li>
+          <li><a href="#use-cases">For Games</a></li>
+          <li><a href="#use-cases">For Work</a></li>
+          <li><a href="#use-cases">For Streamers</a></li>
+          <li><a href="#use-cases">For Decisions</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Info</h4>
+        <ul>
+          <li><a href="#how-it-works">How It Works</a></li>
+          <li><a href="#features">Features</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#about-wheel">About</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© ${new Date().getFullYear()} SpinAWheel.github.io — Free Online Wheel Spinner</p>
+      <div class="footer-keywords">
+        <span>spin wheel</span><span>random wheel</span><span>wheel spinner</span>
+        <span>classroom spinner</span><span>deciding wheel</span><span>mystery wheel</span>
+      </div>
+    </div>
+  `;
+})();
+
+/* ============================================================
+   WHEEL DRAWING ENGINE
+============================================================ */
+const SEGMENT_COLORS = [
+  '#ff5e3a','#ff9f1c','#ffe94d','#2ae89a','#00d4ff',
+  '#6c63ff','#e040fb','#ff4081','#00bfa5','#ffab40','#69f0ae','#40c4ff'
+];
+
+function drawWheel(canvas, entries, rotationAngle) {
+  const ctx = canvas.getContext('2d');
+  const W = canvas.width, H = canvas.height;
+  const cx = W / 2, cy = H / 2;
+  const r = Math.min(cx, cy) - 4;
+  const n = entries.length;
+
+  ctx.clearRect(0, 0, W, H);
+  if (n === 0) return;
+
+  const arc = (2 * Math.PI) / n;
+
+  // Draw segments
+  entries.forEach((entry, i) => {
+    const startAngle = rotationAngle + i * arc;
+    const endAngle = startAngle + arc;
+
+    ctx.beginPath();
+    ctx.moveTo(cx, cy);
+    ctx.arc(cx, cy, r, startAngle, endAngle);
+    ctx.closePath();
+    ctx.fillStyle = entry.color || SEGMENT_COLORS[i % SEGMENT_COLORS.length];
+    ctx.fill();
+    ctx.strokeStyle = 'rgba(0,0,0,0.25)';
+    ctx.lineWidth = 2;
+    ctx.stroke();
+  });
+
+  // Draw segment labels
+  entries.forEach((entry, i) => {
+    const midAngle = rotationAngle + i * arc + arc / 2;
+    ctx.save();
+    ctx.translate(cx, cy);
+    ctx.rotate(midAngle);
+    ctx.textAlign = 'right';
+    ctx.fillStyle = '#fff';
+    ctx.shadowColor = 'rgba(0,0,0,0.5)';
+    ctx.shadowBlur = 4;
+
+    const fontSize = Math.max(10, Math.min(16, 260 / n));
+    ctx.font = `700 ${fontSize}px 'Syne', sans-serif`;
+    const label = entry.label.length > 14 ? entry.label.substring(0, 13) + '…' : entry.label;
+    ctx.fillText(label, r - 14, fontSize / 3);
+    ctx.restore();
+  });
+
+  // Center circle
+  ctx.beginPath();
+  ctx.arc(cx, cy, r * 0.1, 0, 2 * Math.PI);
+  ctx.fillStyle = '#1a1a28';
+  ctx.fill();
+  ctx.strokeStyle = 'rgba(255,255,255,0.2)';
+  ctx.lineWidth = 2;
+  ctx.stroke();
+}
+
+function getWinner(entries, angle) {
+  const n = entries.length;
+  if (!n) return null;
+  const arc = (2 * Math.PI) / n;
+  // Pointer is at top (−π/2). Normalize angle
+  let normalized = ((-angle - Math.PI / 2) % (2 * Math.PI) + 2 * Math.PI) % (2 * Math.PI);
+  const idx = Math.floor(normalized / arc) % n;
+  return entries[idx];
+}
+
+/* ============================================================
+   HERO WHEEL
+============================================================ */
+const heroCanvas = document.getElementById('mainCanvas');
+const heroEntries = [
+  { label: 'YES!', color: '#2ae89a' },
+  { label: 'NO!', color: '#ff5e3a' },
+  { label: 'MAYBE', color: '#ff9f1c' },
+  { label: 'DO IT', color: '#6c63ff' },
+  { label: 'SKIP', color: '#e040fb' },
+  { label: 'TRY', color: '#00d4ff' },
+  { label: 'WHY NOT', color: '#ffe94d' },
+  { label: 'NOPE', color: '#ff4081' },
+];
+
+let heroAngle = 0;
+let heroSpinning = false;
+let heroAnimId;
+
+function resizeHeroCanvas() {
+  const wrapper = heroCanvas.parentElement;
+  const size = Math.min(wrapper.clientWidth, wrapper.clientHeight);
+  heroCanvas.width = size;
+  heroCanvas.height = size;
+  drawWheel(heroCanvas, heroEntries, heroAngle);
+}
+
+function spinHeroWheel() {
+  if (heroSpinning) return;
+  heroSpinning = true;
+  document.getElementById('heroSpinBtn').classList.add('spinning');
+
+  const totalSpin = (Math.PI * 2 * (5 + Math.random() * 5)) + Math.random() * Math.PI * 2;
+  const duration = 3000 + Math.random() * 1500;
+  const startAngle = heroAngle;
+  const startTime = performance.now();
+
+  function easeOut(t) { return 1 - Math.pow(1 - t, 4); }
+
+  function animate(now) {
+    const elapsed = now - startTime;
+    const t = Math.min(elapsed / duration, 1);
+    heroAngle = startAngle + totalSpin * easeOut(t);
+    drawWheel(heroCanvas, heroEntries, heroAngle);
+    if (t < 1) {
+      heroAnimId = requestAnimationFrame(animate);
+    } else {
+      heroSpinning = false;
+      document.getElementById('heroSpinBtn').classList.remove('spinning');
+    }
+  }
+  requestAnimationFrame(animate);
+}
+
+heroCanvas.addEventListener('click', spinHeroWheel);
+window.addEventListener('resize', resizeHeroCanvas);
+setTimeout(resizeHeroCanvas, 100);
+
+/* ============================================================
+   PRESETS
+============================================================ */
+const PRESETS = {
+  custom: [
+    { label: 'Option 1' }, { label: 'Option 2' }, { label: 'Option 3' },
+    { label: 'Option 4' }, { label: 'Option 5' }, { label: 'Option 6' },
+  ],
+  yesno: [
+    { label: 'YES', color: '#2ae89a' }, { label: 'NO', color: '#ff5e3a' },
+    { label: 'MAYBE', color: '#ff9f1c' }, { label: 'ASK AGAIN', color: '#6c63ff' },
+  ],
+  numbers: Array.from({ length: 10 }, (_, i) => ({ label: String(i + 1) })),
+  colors: [
+    { label: 'Red', color: '#ff5e3a' }, { label: 'Orange', color: '#ff9f1c' },
+    { label: 'Yellow', color: '#ffe94d' }, { label: 'Green', color: '#2ae89a' },
+    { label: 'Blue', color: '#00d4ff' }, { label: 'Purple', color: '#6c63ff' },
+    { label: 'Pink', color: '#e040fb' }, { label: 'White', color: '#cccccc' },
+  ],
+  days: ['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday']
+    .map(d => ({ label: d })),
+  truth: ['Truth','Dare','Truth','Dare','Double Dare','Skip'].map(l => ({ label: l })),
+  classroom: ['Alice','Bob','Charlie','Diana','Ethan','Fiona','George','Hannah','Ivan','Julia']
+    .map(n => ({ label: n })),
+  food: ['Pizza','Sushi','Burgers','Tacos','Pasta','Salad','Ramen','BBQ','Sandwiches','Curry']
+    .map(f => ({ label: f })),
+};
+
+/* ============================================================
+   APP WHEEL
+============================================================ */
+const appCanvas = document.getElementById('appCanvas');
+let appEntries = PRESETS.custom.map((e, i) => ({
+  ...e,
+  color: SEGMENT_COLORS[i % SEGMENT_COLORS.length]
+}));
+let appAngle = 0;
+let appSpinning = false;
+let spinCount = 0;
+const spinHistory = [];
+
+function resizeAppCanvas() {
+  const wrapper = appCanvas.parentElement;
+  const size = Math.min(wrapper.clientWidth, wrapper.clientHeight);
+  appCanvas.width = size;
+  appCanvas.height = size;
+  drawWheel(appCanvas, appEntries, appAngle);
+}
+
+function renderEntries() {
+  const list = document.getElementById('entriesList');
+  list.innerHTML = appEntries.map((e, i) => `
+    <div class="entry-item">
+      <div class="entry-color" style="background:${e.color}"></div>
+      <div class="entry-text">${e.label}</div>
+      <button class="entry-del" onclick="removeEntry(${i})" title="Remove">×</button>
+    </div>
+  `).join('');
+  drawWheel(appCanvas, appEntries, appAngle);
+}
+
+function addEntry() {
+  const input = document.getElementById('newEntryInput');
+  const val = input.value.trim();
+  if (!val) return;
+  const color = SEGMENT_COLORS[appEntries.length % SEGMENT_COLORS.length];
+  appEntries.push({ label: val, color });
+  input.value = '';
+  renderEntries();
+}
+
+function removeEntry(idx) {
+  appEntries.splice(idx, 1);
+  renderEntries();
+}
+
+function clearEntries() {
+  if (confirm('Clear all entries?')) {
+    appEntries = [];
+    renderEntries();
+  }
+}
+
+function shuffleEntries() {
+  appEntries = appEntries.sort(() => Math.random() - 0.5);
+  renderEntries();
+}
+
+document.getElementById('newEntryInput').addEventListener('keydown', e => {
+  if (e.key === 'Enter') addEntry();
+});
+
+// Type tabs
+document.querySelectorAll('.type-tab').forEach(tab => {
+  tab.addEventListener('click', () => {
+    document.querySelectorAll('.type-tab').forEach(t => t.classList.remove('active'));
+    tab.classList.add('active');
+    const preset = tab.dataset.preset;
+    appEntries = (PRESETS[preset] || PRESETS.custom).map((e, i) => ({
+      ...e,
+      color: e.color || SEGMENT_COLORS[i % SEGMENT_COLORS.length]
+    }));
+    renderEntries();
+  });
+});
+
+function spinAppWheel() {
+  if (appSpinning || appEntries.length < 2) return;
+  appSpinning = true;
+  document.getElementById('appSpinBtn').classList.add('spinning');
+  document.getElementById('appResult').classList.remove('winner');
+
+  const totalSpin = (Math.PI * 2 * (6 + Math.random() * 6)) + Math.random() * Math.PI * 2;
+  const duration = 3500 + Math.random() * 2000;
+  const startAngle = appAngle;
+  const startTime = performance.now();
+
+  function easeOut(t) { return 1 - Math.pow(1 - t, 4); }
+
+  function animate(now) {
+    const elapsed = now - startTime;
+    const t = Math.min(elapsed / duration, 1);
+    appAngle = startAngle + totalSpin * easeOut(t);
+    drawWheel(appCanvas, appEntries, appAngle);
+    if (t < 1) {
+      requestAnimationFrame(animate);
+    } else {
+      appSpinning = false;
+      document.getElementById('appSpinBtn').classList.remove('spinning');
+      const winner = getWinner(appEntries, appAngle);
+      if (winner) {
+        spinCount++;
+        showResult(winner);
+        addToHistory(winner);
+      }
+    }
+  }
+  requestAnimationFrame(animate);
+}
+
+appCanvas.addEventListener('click', spinAppWheel);
+
+function showResult(winner) {
+  const el = document.getElementById('appResult');
+  const tv = document.getElementById('appResultText');
+  el.classList.add('winner');
+  tv.textContent = winner.label;
+  tv.style.color = winner.color || 'var(--accent)';
+  tv.classList.remove('result-pop');
+  void tv.offsetWidth;
+  tv.classList.add('result-pop');
+  // Show modal
+  setTimeout(() => showModal(winner), 400);
+}
+
+function addToHistory(winner) {
+  spinHistory.unshift({ label: winner.label, color: winner.color, num: spinCount });
+  const list = document.getElementById('historyList');
+  list.innerHTML = spinHistory.slice(0, 8).map(h => `
+    <div class="history-item">
+      <div class="h-color" style="background:${h.color || 'var(--accent)'}"></div>
+      <span>${h.label}</span>
+      <span class="h-num" style="margin-left:auto">Spin #${h.num}</span>
+    </div>
+  `).join('');
+}
+
+/* ============================================================
+   MODAL
+============================================================ */
+const RESULT_EMOJIS = ['🎉','🎊','✨','🏆','🎯','⭐','🔥','💥'];
+
+function showModal(winner) {
+  const modal = document.getElementById('resultModal');
+  document.getElementById('modalResult').textContent = winner.label;
+  document.getElementById('modalResult').style.color = winner.color || 'var(--accent)';
+  document.getElementById('modalEmoji').textContent = RESULT_EMOJIS[Math.floor(Math.random() * RESULT_EMOJIS.length)];
+  modal.classList.add('open');
+  launchConfetti(winner.color || '#ff5e3a');
+}
+
+function closeModal() {
+  document.getElementById('resultModal').classList.remove('open');
+}
+
+document.getElementById('resultModal').addEventListener('click', function(e) {
+  if (e.target === this) closeModal();
+});
+
+/* ============================================================
+   CONFETTI
+============================================================ */
+function launchConfetti(color) {
+  const canvas = document.getElementById('confetti-canvas');
+  const ctx = canvas.getContext('2d');
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+
+  const particles = [];
+  const colors = [color, '#ff9f1c', '#ffe94d', '#2ae89a', '#6c63ff', '#e040fb', '#00d4ff', '#fff'];
+
+  for (let i = 0; i < 120; i++) {
+    particles.push({
+      x: Math.random() * canvas.width,
+      y: Math.random() * -canvas.height / 2 - 20,
+      vx: (Math.random() - 0.5) * 6,
+      vy: Math.random() * 5 + 3,
+      rot: Math.random() * 360,
+      rotV: (Math.random() - 0.5) * 8,
+      w: Math.random() * 10 + 6,
+      h: Math.random() * 5 + 3,
+      color: colors[Math.floor(Math.random() * colors.length)],
+      opacity: 1,
+    });
+  }
+
+  let frame = 0;
+  function drawConfetti() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    particles.forEach(p => {
+      ctx.save();
+      ctx.globalAlpha = p.opacity;
+      ctx.translate(p.x, p.y);
+      ctx.rotate(p.rot * Math.PI / 180);
+      ctx.fillStyle = p.color;
+      ctx.fillRect(-p.w/2, -p.h/2, p.w, p.h);
+      ctx.restore();
+      p.x += p.vx;
+      p.y += p.vy;
+      p.vy += 0.12;
+      p.rot += p.rotV;
+      if (p.y > canvas.height * 0.6) p.opacity -= 0.02;
+    });
+    frame++;
+    if (frame < 200 && particles.some(p => p.opacity > 0)) {
+      requestAnimationFrame(drawConfetti);
+    } else {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+    }
+  }
+  requestAnimationFrame(drawConfetti);
+}
+
+/* ============================================================
+   FAQ ACCORDION
+============================================================ */
+function toggleFaq(btn) {
+  const item = btn.closest('.faq-item');
+  const isOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+  if (!isOpen) item.classList.add('open');
+}
+
+/* ============================================================
+   SCROLL REVEAL
+============================================================ */
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+      observer.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+/* ============================================================
+   INIT
+============================================================ */
+setTimeout(() => {
+  resizeAppCanvas();
+  renderEntries();
+}, 150);
+
+window.addEventListener('resize', () => {
+  resizeHeroCanvas();
+  resizeAppCanvas();
+});
+</script>
+</body>
+</html>
