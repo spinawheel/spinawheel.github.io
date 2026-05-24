@@ -1452,101 +1452,24 @@
 </section>
 
 <!-- FOOTER (component) -->
+<!-- Footer placeholder -->
 <footer id="site-footer"></footer>
+
+<!-- Include the component scripts -->
+<script src="components/header.js"></script>
+<script src="components/footer.js"></script>
 
 <script>
 /* ============================================================
    HEADER COMPONENT
 ============================================================ */
-(function renderHeader() {
-  const navLinks = [
-    { href: '#wheel-app', label: 'Spin Wheel' },
-    { href: '#wheel-types', label: 'Wheel Types' },
-    { href: '#how-it-works', label: 'How It Works' },
-    { href: '#features', label: 'Features' },
-    { href: '#faq', label: 'FAQ' },
-  ];
-  const header = document.getElementById('site-header');
-  header.innerHTML = `
-    <a href="/" class="header-logo">
-      <div class="logo-icon"></div>
-      <span>Spin<span>A</span>Wheel</span>
-    </a>
-    <nav class="header-nav">
-      ${navLinks.map(l => `<a href="${l.href}">${l.label}</a>`).join('')}
-    </nav>
-    <a href="#wheel-app" class="header-cta">Spin Now</a>
-    <button class="hamburger" id="hamburger" onclick="toggleMobileNav()" aria-label="Menu">
-      <span></span><span></span><span></span>
-    </button>
-  `;
-  const mobileNav = document.getElementById('mobile-nav');
-  mobileNav.innerHTML = navLinks.map(l => `<a href="${l.href}" onclick="closeMobileNav()">${l.label}</a>`).join('') +
-    `<a href="#wheel-app" class="btn-primary" style="text-align:center" onclick="closeMobileNav()">Spin Now</a>`;
 
-  window.addEventListener('scroll', () => {
-    header.classList.toggle('scrolled', window.scrollY > 40);
-  });
-})();
-
-function toggleMobileNav() {
-  document.getElementById('mobile-nav').classList.toggle('open');
-}
-function closeMobileNav() {
-  document.getElementById('mobile-nav').classList.remove('open');
 }
 
 /* ============================================================
    FOOTER COMPONENT
 ============================================================ */
-(function renderFooter() {
-  document.getElementById('site-footer').innerHTML = `
-    <div class="footer-top">
-      <div class="footer-brand">
-        <div class="brand-logo-icon"></div>
-        <div class="brand-name">SpinAWheel</div>
-        <p>The free online random wheel spinner for decisions, classrooms, games, and everything in between.</p>
-      </div>
-      <div class="footer-col">
-        <h4>Wheel Types</h4>
-        <ul>
-          <li><a href="#wheel-app">Decision Wheel</a></li>
-          <li><a href="#wheel-app">Classroom Spinner</a></li>
-          <li><a href="#wheel-app">Yes / No Wheel</a></li>
-          <li><a href="#wheel-app">Mystery Wheel</a></li>
-          <li><a href="#wheel-app">Number Wheel</a></li>
-          <li><a href="#wheel-app">Color Wheel</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Use Cases</h4>
-        <ul>
-          <li><a href="#use-cases">For Teachers</a></li>
-          <li><a href="#use-cases">For Games</a></li>
-          <li><a href="#use-cases">For Work</a></li>
-          <li><a href="#use-cases">For Streamers</a></li>
-          <li><a href="#use-cases">For Decisions</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Info</h4>
-        <ul>
-          <li><a href="#how-it-works">How It Works</a></li>
-          <li><a href="#features">Features</a></li>
-          <li><a href="#faq">FAQ</a></li>
-          <li><a href="#about-wheel">About</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <p>© ${new Date().getFullYear()} SpinAWheel.github.io — Free Online Wheel Spinner</p>
-      <div class="footer-keywords">
-        <span>spin wheel</span><span>random wheel</span><span>wheel spinner</span>
-        <span>classroom spinner</span><span>deciding wheel</span><span>mystery wheel</span>
-      </div>
-    </div>
-  `;
-})();
+
 
 /* ============================================================
    WHEEL DRAWING ENGINE
