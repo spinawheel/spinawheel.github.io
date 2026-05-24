@@ -1,259 +1,105 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZPEH3GL405"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-ZPEH3GL405');
-  </script>
+<head>  
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Privacy Policy – Spin A Wheel</title>
-  <meta name="description" content="Read the Privacy Policy for Spin A Wheel. Learn how we maintain your privacy and secure data on our free online random wheel spinner tool." />
+  <meta name="description" content="Privacy Policy for Spin A Wheel. Learn how we handle your data when using our free online random wheel spinner." />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://spinawheel.github.io/privacy.html" />
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
-
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet" />
-
+  <link rel="stylesheet" href="style.css" />  
   <style>
-    /* ============================================================
-       CSS VARIABLES & RESET (Synced with Main Layout)
-    ============================================================ */
-    :root {
-      --bg: #09090f;
-      --bg2: #10101a;
-      --bg3: #15151f;
-      --surface: #1a1a28;
-      --border: rgba(255,255,255,0.08);
-      --accent: #ff5e3a;
-      --accent2: #ff9f1c;
-      --accent3: #6c63ff;
-      --text: #f0eff8;
-      --text2: #a09cb8;
-      --text3: #6b6880;
-      --radius: 18px;
-      --radius-sm: 10px;
-      --shadow: 0 20px 60px rgba(0,0,0,0.6);
-      --font-display: 'Syne', sans-serif;
-      --font-body: 'DM Sans', sans-serif;
+    .legal-container {
+      max-width: 800px;
+      margin: 120px auto 60px;
+      padding: 0 20px;
+      font-family: 'DM Sans', sans-serif;
+      color: #b0b0c0;
+      line-height: 1.8;
     }
-
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-    body {
-      background: var(--bg);
-      color: var(--text);
-      font-family: var(--font-body);
-      font-size: 16px;
-      line-height: 1.65;
-      overflow-x: hidden;
+    .legal-container h1 {
+      font-family: 'Syne', sans-serif;
+      color: #fff;
+      font-size: 2.5rem;
+      margin-bottom: 10px;
     }
-    a { color: inherit; text-decoration: none; transition: color 0.2s; }
-    a:hover { color: var(--accent); }
-
-    /* Scrollbar */
-    ::-webkit-scrollbar { width: 6px; }
-    ::-webkit-scrollbar-track { background: var(--bg2); }
-    ::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 3px; }
-
-    /* Noise overlay overlaying body background */
-    body::before {
-      content: '';
-      position: fixed; inset: 0;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
-      pointer-events: none; z-index: 9999; opacity: 0.4;
+    .legal-container h2 {
+      font-family: 'Syne', sans-serif;
+      color: #fff;
+      font-size: 1.5rem;
+      margin-top: 40px;
+      margin-bottom: 15px;
     }
-
-    /* ============================================================
-       HEADER COMPONENT
-    ============================================================ */
-    #site-header {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
-      padding: 0 5%; height: 70px;
-      display: flex; align-items: center; justify-content: space-between;
-      background: rgba(9,9,15,0.85); backdrop-filter: blur(20px);
-      border-bottom: 1px solid var(--border); transition: all 0.3s;
+    .legal-container p {
+      margin-bottom: 20px;
     }
-    #site-header.scrolled {
-      height: 60px; background: rgba(9,9,15,0.97); box-shadow: 0 4px 30px rgba(0,0,0,0.5);
+    .legal-container ul {
+      margin-bottom: 20px;
+      padding-left: 20px;
     }
-    .header-logo {
-      display: flex; align-items: center; gap: 10px;
-      font-family: var(--font-display); font-weight: 800; font-size: 1.3rem; letter-spacing: -0.02em;
+    .legal-container li {
+      margin-bottom: 10px;
     }
-    .header-logo .logo-icon {
-      width: 36px; height: 36px;
-      background: conic-gradient(var(--accent) 0deg 120deg, var(--accent2) 120deg 240deg, var(--accent3) 240deg 360deg);
-      border-radius: 50%; animation: logoSpin 8s linear infinite; flex-shrink: 0;
+    .last-updated {
+      font-style: italic;
+      margin-bottom: 40px;
+      color: var(--accent, #6c63ff);
     }
-    @keyframes logoSpin { to { transform: rotate(360deg); } }
-    .header-logo span { color: var(--accent); }
-    .header-nav { display: flex; align-items: center; gap: 2rem; }
-    .header-nav a { font-size: 0.88rem; font-weight: 500; color: var(--text2); letter-spacing: 0.01em; }
-    .header-nav a:hover, .header-nav a.active { color: var(--text); }
-    .header-cta {
-      background: var(--accent); color: #fff; font-weight: 700; font-size: 0.85rem;
-      padding: 9px 20px; border-radius: 50px; letter-spacing: 0.02em; text-transform: uppercase;
-    }
-    .header-cta:hover { background: #ff7a5c; transform: translateY(-1px); box-shadow: 0 6px 20px rgba(255,94,58,0.4); }
-    
-    .hamburger { display: none; flex-direction: column; gap: 5px; background: none; padding: 4px; }
-    .hamburger span { width: 24px; height: 2px; background: var(--text); border-radius: 2px; transition: all 0.3s; display: block; }
-    .mobile-nav {
-      display: none; position: fixed; top: 70px; left: 0; right: 0;
-      background: var(--bg2); border-bottom: 1px solid var(--border);
-      flex-direction: column; padding: 1.5rem 5%; gap: 1rem; z-index: 999;
-    }
-    .mobile-nav.open { display: flex; }
-    .mobile-nav a { font-size: 1rem; color: var(--text2); padding: 0.4rem 0; }
-    @media (max-width: 768px) { .header-nav, .header-cta { display: none; } .hamburger { display: flex; } }
-
-    /* ============================================================
-       LEGAL CONTENT CONTAINER
-    ============================================================ */
-    .legal-wrapper {
-      padding: 140px 5% 80px;
-      max-width: 900px;
-      margin: 0 auto;
-      position: relative;
-    }
-    .hero-bg-glow {
-      position: absolute; width: 600px; height: 600px;
-      background: radial-gradient(circle, rgba(255,94,58,0.08) 0%, transparent 70%);
-      top: 0px; right: -200px; pointer-events: none; z-index: 0;
-    }
-    .legal-header {
-      margin-bottom: 3rem;
-      position: relative; z-index: 1;
-    }
-    .legal-title {
-      font-family: var(--font-display); font-size: clamp(2.2rem, 4vw, 3.5rem);
-      font-weight: 800; letter-spacing: -0.02em; line-height: 1.1; margin-bottom: 0.5rem;
-    }
-    .legal-title .grad {
-      background: linear-gradient(135deg, var(--accent) 0%, var(--accent2) 100%);
-      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
-    }
-    .legal-meta {
-      font-size: 0.88rem; color: var(--text3); text-transform: uppercase; letter-spacing: 0.05em;
-    }
-    .legal-content {
-      background: var(--surface); border: 1px solid var(--border);
-      border-radius: var(--radius); padding: 2.5rem;
-      box-shadow: var(--shadow); position: relative; z-index: 1;
-    }
-    .legal-content section {
-      margin-bottom: 2rem;
-    }
-    .legal-content section:last-child {
-      margin-bottom: 0;
-    }
-    .legal-content h2 {
-      font-family: var(--font-display); font-size: 1.4rem; font-weight: 700;
-      margin-bottom: 1rem; color: var(--text); display: flex; align-items: center; gap: 10px;
-    }
-    .legal-content h2::before {
-      content: ''; width: 4px; height: 18px; background: var(--accent); border-radius: 2px; display: inline-block;
-    }
-    .legal-content p {
-      color: var(--text2); font-size: 0.95rem; line-height: 1.75; margin-bottom: 1.2rem;
-    }
-    .legal-content p:last-child {
-      margin-bottom: 0;
-    }
-    .legal-content ul {
-      margin: 0 0 1.2rem 1.2rem; list-style: disc; color: var(--text2); font-size: 0.95rem;
-    }
-    .legal-content ul li {
-      margin-bottom: 0.5rem; line-height: 1.6;
-    }
-
-    /* ============================================================
-       FOOTER COMPONENT
-    ============================================================ */
-    #site-footer {
-      background: var(--bg2); border-top: 1px solid var(--border); padding: 4rem 5% 2rem;
-      position: relative; z-index: 1;
-    }
-    .footer-top { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 2.5rem; margin-bottom: 3rem; }
-    @media (max-width: 768px) { .footer-top { grid-template-columns: 1fr; gap: 2rem; } }
-    .footer-brand .brand-name { font-family: var(--font-display); font-size: 1.2rem; font-weight: 800; margin-bottom: 0.6rem; }
-    .footer-brand p { font-size: 0.83rem; color: var(--text3); line-height: 1.6; max-width: 280px; }
-    .footer-links h4 { font-family: var(--font-display); font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 1rem; color: var(--text); }
-    .footer-links ul { display: flex; flex-direction: column; gap: 0.6rem; }
-    .footer-links a { font-size: 0.85rem; color: var(--text2); }
-    .footer-links a:hover { color: var(--text); }
-    .footer-bottom { border-top: 1px solid var(--border); padding-top: 1.5rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
-    .footer-bottom p { font-size: 0.78rem; color: var(--text3); }
-    .footer-legal-links { display: flex; gap: 1.5rem; }
-    .footer-legal-links a { font-size: 0.78rem; color: var(--text3); }
-    .footer-legal-links a:hover { color: var(--text2); }
   </style>
 </head>
 <body>
 
-  <!-- HEADER (component) -->
 <header id="site-header"></header>
 <nav class="mobile-nav" id="mobile-nav"></nav>
 
-  <main class="legal-wrapper">
-    <div class="hero-bg-glow"></div>
-    
-    <div class="legal-header">
-      <h1 class="legal-title">Privacy <span class="grad">Policy</span></h1>
-      <div class="legal-meta">Last Updated: May 2026</div>
-    </div>
+<main class="legal-container">
+  <h1>Privacy Policy</h1>
+  <div class="last-updated">Last Updated: May 25, 2026</div>
 
-    <article class="legal-content">
-      <section>
-        <h2>Introduction</h2>
-        <p>Welcome to Spin A Wheel ("we", "our", "us"). We run an interactive random wheel spinner tool accessible entirely online via your browser. Your privacy matters to us, which is why our application is engineered to safeguard your personal space. This Privacy Policy details the types of non-personally identifiable metrics tracked and how the site handles your configuration states.</p>
-      </section>
+  <p>Welcome to Spin A Wheel. We respect your privacy and are committed to protecting any information processed through our web application. This Privacy Policy explains our practices regarding data collection and usage on our website.</p>
 
-      <section>
-        <h2>Information We Do Not Collect</h2>
-        <p>Spin A Wheel is 100% free and does not require you to construct an account, login, or input personal identifiers like your name, email address, or billing context to use our random wheels. Any list values, student arrays, customized names, or color settings you input into our interactive input field parameters are processed immediately on your device in local temporary variables and are never transferred to our global web servers.</p>
-      </section>
+  <h2>1. Data We Do Not Collect</h2>
+  <p>Spin A Wheel is designed as a client-side utility application. We do not require you to create an account, register, or provide any personal data (such as names, email addresses, or phone numbers) to use our interactive spin wheels.</p>
+  <p>Any custom entries, list of names, or values you input into the spinner app are processed locally within your web browser memory. This data is never uploaded, transferred, or stored on our servers.</p>
 
-      <section>
-        <h2>Analytical & Infrastructure Tracking</h2>
-        <p>To audit infrastructure balance and observe user-base retention behaviors, we drop client-side scripts to document technical session activity. This encompasses:</p>
-        <ul>
-          <li><strong>Cookies & Identifiers:</strong> We utilize third-party packages, specifically Google Analytics (gtag.js), to process generalized geographic regions, active device models, browser classifications, and core click paths.</li>
-          <li><strong>Log Files:</strong> Standard web analytics track server requests, timing vectors, referring domains, and generalized connection telemetry. This metadata is strictly evaluated as aggregated statistics rather than tied to identifiable people.</li>
-        </ul>
-      </section>
+  <h2>2. Log Files and Analytics</h2>
+  <p>Like most standard website environments, we collect minimal automated data through technical tracking integrations:</p>
+  <ul>
+    <li><strong>Google Analytics:</strong> We use Google Analytics (gtag.js) to monitor web traffic trends, visitor counts, and high-level engagement details. This structural data includes masked IP addresses, browser configurations, referring/exit pages, and timestamps. It helps us improve site performance and functionality.</li>
+    <li><strong>Cookies:</strong> Analytics services may drop essential configuration cookies on your browser to differentiate unique visits. You can control or deny cookie usage via your personal browser preferences.</li>
+  </ul>
 
-      <section>
-        <h2>Third-Party Services</h2>
-        <p>Our website utilizes industry-standard metrics platforms to understand engagement profiles:</p>
-        <ul>
-          <li><strong>Google Tag Manager / Google Analytics:</strong> These networks apply behavioral analytical identifiers to verify unique traffic ratios. You can easily switch off cookie preservation mechanisms directly via individual web browser control consoles.</li>
-        </ul>
-      </section>
+  <h2>3. Third-Party Links</h2>
+  <p>Our website may contain references or links to external sites that are not operated by us. We hold no authority over the contents or specific management privacy policies governing third-party websites, and cannot accept liability for their operational frameworks.</p>
 
-      <section>
-        <h2>Data Retention Lifecycle</h2>
-        <p>All temporary configuration properties (such as user-built item labels or spin historical lists) are tracked inside standard frontend window variables or isolated runtime arrays. Refreshing your active window instantly clears this operational memory pool.</p>
-      </section>
+  <h2>4. Children's Privacy</h2>
+  <p>Our classroom spinner capabilities and general random selection features are safe for scholastic activities. Because we do not extract or archive structural personal information, we do not intentionally profile or harvest identifier information from children under the age of 13.</p>
 
-      <section>
-        <h2>Contact Architecture</h2>
-        <p>If you have clarification questions, architecture recommendations, or regulatory policy inquires regarding the operations of our system, you are encouraged to connect directly through our public code repository channels or open-source community portals.</p>
-      </section>
-    </article>
-  </main>
+  <h2>5. Policy Variations</h2>
+  <p>We reserve the option to modify this privacy structure over time. Any revisions will update the timeline notice listed at the top of this documentation page.</p>
 
-  <!-- Footer placeholder -->
+  <h2>6. Contact Us</h2>
+  <p>If you have any questions about this Privacy Policy or site operations, you can contact us via our official repository interfaces or administrative support hub.</p>
+</main>
+
 <footer id="site-footer"></footer>
 
-<!-- Include the component scripts -->
 <script src="components/header.js"></script>
-<script src="components/footer.js"></script>  
+<script src="components/footer.js"></script>
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
 </body>
 </html>
