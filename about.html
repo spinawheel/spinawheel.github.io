@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>  
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Us – Spin A Wheel</title>
+  <meta name="description" content="Meet Ghulam, the web developer and SEO expert behind Spin A Wheel. Discover our mission to build the ultimate decision maker." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://spinawheel.github.io/about" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />  
+  <style>
+    .about-page-container {
+      max-width: 900px;
+      margin: 120px auto 60px;
+      padding: 0 20px;
+      font-family: 'DM Sans', sans-serif;
+      color: #b0b0c0;
+      line-height: 1.8;
+    }
+    .about-hero {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+    .about-hero h1 {
+      font-family: 'Syne', sans-serif;
+      color: #fff;
+      font-size: 3rem;
+      font-weight: 800;
+      margin-bottom: 15px;
+    }
+    .about-hero .subtitle {
+      color: var(--accent, #6c63ff);
+      font-family: 'Syne', sans-serif;
+      font-weight: 600;
+      font-size: 1.2rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+    .about-card {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 16px;
+      padding: 40px;
+      margin-bottom: 40px;
+      backdrop-filter: blur(10px);
+    }
+    .about-card h2 {
+      font-family: 'Syne', sans-serif;
+      color: #fff;
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .highlight-text {
+      color: #fff;
+      font-weight: 500;
+    }
+    .btn-about-cta {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 12px 30px;
+      background: linear-gradient(135deg, #6c63ff, #9b59f5);
+      color: #fff;
+      font-family: 'Syne', sans-serif;
+      font-weight: 700;
+      text-decoration: none;
+      border-radius: 8px;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .btn-about-cta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(108, 99, 255, 0.4);
+    }
+  </style>
+</head>
+<body>
+
+<header id="site-header"></header>
+<nav class="mobile-nav" id="mobile-nav"></nav>
+
+<main class="about-page-container">
+  <div class="about-hero reveal">
+    <div class="subtitle">Behind the Spinner</div>
+    <h1>Our Story</h1>
+    <p>Making choices simple, interactive, and completely unbiased for users worldwide.</p>
+  </div>
+
+  <div class="about-card reveal">
+    <h2><span>👋</span> Meet the Creator</h2>
+    <p>Hi there! My name is <span class="highlight-text">Ghulam</span>, and I am a professional <span class="highlight-text">web developer and SEO expert</span>. Spin A Wheel was born out of a simple goal: to build an ultra-fast, performance-optimized, and beautiful decision-making tool that solves everyday dilemmas instantly.</p>
+    <p>With a background rooted deeply in engineering seamless user experiences and tuning technical SEO performance metrics, I designed this platform entirely on the client side. This ensures that your custom data never leaves your device, loading instantly while remaining private.</p>
+  </div>
+
+  <div class="about-card reveal">
+    <h2><span>🎯</span> Our Mission</h2>
+    <p>Whether you are a teacher looking to engage your classroom fairly with a random student picker, a gamer designing mystery reward wheels, or simply settling a debate over tonight's dinner selection, Spin A Wheel is tailored for you.</p>
+    <p>We believe utility tools should be free from disruptive ad placements, hidden payment paywalls, and tedious registration flows. That is why this web app remains lightweight, responsive across all screen sizes, and 100% free to spin forever.</p>
+    <div style="text-align: center;">
+      <a href="index.html#wheel-app" class="btn-about-cta">🎯 Back to Spinning</a>
+    </div>
+  </div>
+</main>
+
+<footer id="site-footer"></footer>
+
+<script src="components/header.js"></script>
+<script src="components/footer.js"></script>
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
